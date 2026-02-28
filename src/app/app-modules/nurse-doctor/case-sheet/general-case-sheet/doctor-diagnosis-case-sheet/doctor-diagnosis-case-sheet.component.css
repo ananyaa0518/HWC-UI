@@ -1,112 +1,531 @@
+/* ============================================
+   DISCHARGE SUMMARY - MODERN UI REDESIGN
+   ============================================ */
+
+/* Base Container */
 .container {
     background: white;
-    padding-bottom: 50px;
+    padding: 24px 32px 48px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: #212529;
+    max-width: 100%;
 }
-#covid-19{
-    width: 100%;
+
+/* Typography Hierarchy */
+h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 24px 0;
+    letter-spacing: -0.02em;
 }
-#heading
-{
-    text-align:center;
+
+h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0 0 16px 0;
 }
+
+h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #34495e;
+    margin: 0 0 12px 0;
+    letter-spacing: 0.01em;
+}
+
+h5 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #495057;
+    margin: 0 0 8px 0;
+}
+
+p {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+strong {
+    font-weight: 600;
+    color: #212529;
+}
+
+/* Logo */
 #logo {
     width: 90px;
+    height: auto;
+    margin-bottom: 8px;
 }
-.full-card {
+
+#heading {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+#covid-19 {
     width: 100%;
 }
-.textarea {
-    min-height: 100px;
-    border: 1px solid black;
-    padding: 5px;
+
+/* Layout Spacing - Consistent Margins */
+.m-t-10 {
+    margin-top: 24px !important;
 }
 
-.col-xs-12{
-padding: 30px;
-}
-
-
-.table {
-    margin-bottom: 0px;
-}
-
-.table-no-border tr, th, .table-no-border tr td, .table-no-border thead tr th, .table-no-border tbody tr th, .table-no-border tbody tr td {
-    border: none;
-}
-
-.casesheet-table tr th, .casesheet-table tr td, .casesheet-table thead tr th, .casesheet-table tbody tr th, .casesheet-table tbody tr td {
-    width: 25%;
+.m-t-20 {
+    margin-top: 32px !important;
 }
 
 .m-t-50 {
-    margin-top: 50px;
+    margin-top: 48px !important;
 }
 
-h4, h5 {
-    font-weight: bold;
+.m-b-10 {
+    margin-bottom: 16px !important;
 }
 
-@media print {
-    th, strong {
-        font-weight: bold;
-        font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif
-    }
-    h4, h5 {
-        font-weight: bold;
-        font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif
-    }
-    .page-break:last-child {
-        page-break-after: auto;
-      }
-    small {
-        font-weight: normal;
-    }
+/* Column Padding - Normalized */
+.col-xs-12 {
+    padding: 0 16px;
+    margin-bottom: 0;
 }
 
+.col-xs-6 {
+    padding: 0 12px;
+}
+
+.col-xs-3 {
+    padding: 0 12px;
+}
+
+/* Section Cards with Visual Grouping */
 fieldset {
     display: block;
-    -webkit-margin-start: 2px;
-    -webkit-margin-end: 2px;
-    -webkit-padding-before: 0.35em;
-    -webkit-padding-start: 0.75em;
-    -webkit-padding-end: 0.75em;
-    -webkit-padding-after: 0.625em;
-    min-width: -webkit-min-content;
-    border-width: 2px;
-    border-style: groove;
-    border-color: threedface;
-    border-image: initial;
+    margin: 0 0 24px 0;
+    padding: 20px 24px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    background: #fafafa;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.2s ease;
+}
+
+fieldset:hover {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
 legend {
     display: block;
-    width: unset;
-    -webkit-padding-start: 2px;
-    -webkit-padding-end: 2px;
-    border: unset;
+    width: auto;
+    padding: 0 12px;
+    margin: 0 0 16px -12px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1976d2;
+    border: none;
+    background: white;
+}
+
+/* Tables - Improved Alignment and Density */
+.table {
+    width: 100%;
+    margin-bottom: 0;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.table th {
+    font-weight: 600;
+    color: #495057;
+    background-color: #f8f9fa;
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 2px solid #dee2e6;
+    vertical-align: middle;
+    font-size: 13px;
+    letter-spacing: 0.01em;
+}
+
+.table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #e9ecef;
+    vertical-align: top;
+    color: #212529;
+    font-size: 13px;
+}
+
+.table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Bordered Tables */
+.table-bordered {
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.table-bordered th,
+.table-bordered td {
+    border: 1px solid #dee2e6;
+}
+
+.table-bordered thead th {
+    background-color: #f1f3f5;
+    border-bottom-width: 2px;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f8f9fa;
+}
+
+.table-striped tbody tr:nth-of-type(even) {
+    background-color: white;
+}
+
+/* No Border Tables */
+.table-no-border tr,
+.table-no-border th,
+.table-no-border td,
+.table-no-border thead tr th,
+.table-no-border tbody tr th,
+.table-no-border tbody tr td {
+    border: none;
+    padding: 8px 12px;
+}
+
+.casesheet-table tr th,
+.casesheet-table tr td,
+.casesheet-table thead tr th,
+.casesheet-table tbody tr th,
+.casesheet-table tbody tr td {
+    width: 25%;
+    padding: 10px 12px;
+}
+
+.casesheet-table tr th {
+    font-weight: 600;
+    color: #495057;
+    width: 30%;
+    min-width: 140px;
+}
+
+.casesheet-table tr td {
+    color: #212529;
+    width: 20%;
+}
+
+/* Textarea Fields */
+.textarea {
+    min-height: 80px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 12px;
+    background: white;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #212529;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: inherit;
+}
+
+.textarea:empty::before {
+    content: '\00a0';
+}
+
+/* Text Alignment */
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-field-color {
+    color: #6c757d;
+    font-style: italic;
+}
+
+/* Vitals Highlighting - Abnormal Values */
+.vital-abnormal {
+    background-color: #fff3cd !important;
+    color: #856404 !important;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 3px;
+}
+
+.vital-critical {
+    background-color: #f8d7da !important;
+    color: #721c24 !important;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 3px;
+}
+
+/* Button Groups */
+.btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 8px 0;
 }
 
 .btn-group button {
-     background-color: #C21F1F;
-    margin:5px;
+    background-color: #C21F1F;
+    margin: 0;
     color: white;
-    float: left;
-  }
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: default;
+}
 
-  .btn-group1 button {
+.btn-group1 button {
     background-color: #10df3d;
-    margin:5px;
+    margin: 0;
     color: white;
-    float: left;
-  }
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: default;
+}
 
-  .btn-group:after {
+.btn-group:after {
     content: "";
     clear: both;
     display: table;
-  }
+}
 
+/* Small Text */
 small {
-    font-size: medium;
-    color: black;
+    font-size: 13px;
+    color: #6c757d;
+    font-weight: normal;
+}
+
+/* Full Card */
+.full-card {
+    width: 100%;
+}
+
+/* Row Spacing */
+.row {
+    margin-left: -16px;
+    margin-right: -16px;
+    margin-bottom: 0;
+}
+
+.row::before,
+.row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Print Styles - Optimized for PDF */
+@media print {
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+    }
+
+    body {
+        background: white;
+        font-size: 12px;
+        line-height: 1.4;
+    }
+
+    .container {
+        padding: 16px 20px;
+        max-width: 100%;
+    }
+
+    h2 {
+        font-size: 20px;
+        margin-bottom: 16px;
+        page-break-after: avoid;
+    }
+
+    h3 {
+        font-size: 16px;
+        margin-bottom: 12px;
+        page-break-after: avoid;
+    }
+
+    h4 {
+        font-size: 14px;
+        margin-bottom: 8px;
+        page-break-after: avoid;
+    }
+
+    h5 {
+        font-size: 13px;
+        margin-bottom: 6px;
+        page-break-after: avoid;
+    }
+
+    th,
+    strong {
+        font-weight: 700;
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    fieldset {
+        page-break-inside: avoid;
+        margin-bottom: 16px;
+        padding: 12px 16px;
+        border: 1px solid #ccc;
+        background: white;
+        box-shadow: none;
+    }
+
+    legend {
+        font-weight: 700;
+        color: #000;
+        background: white;
+        padding: 0 8px;
+    }
+
+    .table {
+        font-size: 11px;
+        page-break-inside: auto;
+    }
+
+    .table th {
+        font-size: 11px;
+        padding: 6px 8px;
+        background-color: #f5f5f5 !important;
+        -webkit-print-color-adjust: exact;
+    }
+
+    .table td {
+        font-size: 11px;
+        padding: 6px 8px;
+    }
+
+    .table-bordered {
+        border: 1px solid #000;
+    }
+
+    .table-bordered th,
+    .table-bordered td {
+        border: 1px solid #ccc;
+    }
+
+    .casesheet-table tr th,
+    .casesheet-table tr td {
+        padding: 6px 8px;
+        font-size: 11px;
+    }
+
+    .textarea {
+        min-height: 60px;
+        padding: 8px;
+        font-size: 11px;
+        border: 1px solid #000;
+        background: white;
+    }
+
+    .col-xs-12 {
+        padding: 0 8px;
+    }
+
+    .m-t-10 {
+        margin-top: 16px !important;
+    }
+
+    .m-t-20 {
+        margin-top: 20px !important;
+    }
+
+    .m-t-50 {
+        margin-top: 32px !important;
+    }
+
+    .vital-abnormal,
+    .vital-critical {
+        background-color: #fff3cd !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .vital-critical {
+        background-color: #f8d7da !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .page-break {
+        page-break-after: always;
+    }
+
+    .page-break:last-child {
+        page-break-after: auto;
+    }
+
+    small {
+        font-weight: normal;
+        font-size: 11px;
+    }
+
+    /* Avoid breaking tables across pages */
+    .table {
+        page-break-inside: auto;
+    }
+
+    .table tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+
+    .table thead {
+        display: table-header-group;
+    }
+
+    .table tfoot {
+        display: table-footer-group;
+    }
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 16px;
+    }
+
+    .col-xs-12 {
+        padding: 0 8px;
+    }
+
+    fieldset {
+        padding: 16px;
+    }
+
+    .table {
+        font-size: 12px;
+    }
+
+    .table th,
+    .table td {
+        padding: 8px;
+    }
 }
